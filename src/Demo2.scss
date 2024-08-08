@@ -1,0 +1,44 @@
+.Demo2 {
+    position: relative;
+    overflow: hidden;
+}
+
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section1 .content,
+.section2 .content {
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+
+.boy,
+.girl {
+    position: absolute;
+    width: 100%;
+    /* Adjust as needed */
+    height: 100%;
+    /* Adjust as needed */
+}
+
+.boy {
+    left: 40%;
+}
+
+.girl {
+    right: 40%;
+}
+
+.info-box {
+    margin: 20px 0;
+    text-align: left;
+}
+
+button {
+    margin-top: 20px;
+}

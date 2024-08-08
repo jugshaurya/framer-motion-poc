@@ -1,0 +1,30 @@
+.Demo {
+    position: relative;
+    overflow: hidden;
+}
+
+.section {
+    width: 100vw;
+    height: 100vh;
+
+    &.section1 {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            // background: url(https://source.unsplash.com/random);
+            background-image: url("./assets/village.jpg");
+            background-size: contain;
+            z-index: -1;
+        }
+
+    }
+}
+
+.boy-svg {
+    z-index: 1000;
+}
