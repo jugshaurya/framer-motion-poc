@@ -15,11 +15,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.8;
+            // opacity: 0.8;
             // background: url(https://source.unsplash.com/random);
-            background-image: url("./assets/village.jpg");
-            background-size: contain;
-            z-index: -1;
+            background-image: url("./assets/bg.png");
+            background-size: cover;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
 
     }
@@ -27,4 +31,20 @@
 
 .boy-svg {
     z-index: 1000;
+}
+
+.section2,
+.section3 {
+    position: relative;
+
+    .box {
+        border: 1px solid #ffffff50;
+        background: #00000080;
+        width: 242px;
+        height: 198px;
+        border-radius: 24px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
