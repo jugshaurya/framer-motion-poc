@@ -64,6 +64,13 @@
     }
 }
 
+.boy-box,
+.girl-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .boy-svg {
     z-index: 1000;
 }
@@ -85,9 +92,10 @@
         position: absolute;
         top: 0;
         left: 0;
+        padding: 24px;
     }
 }
 
 .section2 {
-    background-color: #ffffff50;
+    // background-color: #ffffff50;
 }

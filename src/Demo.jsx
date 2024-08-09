@@ -3,10 +3,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import BIY from "./assets/boy.svg";
 import GIY from "./assets/girl.svg";
 import CompL from "./assets/logoComp.svg";
-// import MAN1 from "./assets/man1.svg";
-// import MAN2 from "./assets/man2.svg";
-// import MAN3 from "./assets/man3.svg";
-// import MAN4 from "./assets/man4.svg";
+import MAN1 from "./assets/man1.svg";
+import MAN2 from "./assets/man2.svg";
+import MAN3 from "./assets/man3.svg";
+import MAN4 from "./assets/man4.svg";
 
 function Demo() {
     const { scrollY } = useScroll({
@@ -20,7 +20,7 @@ function Demo() {
     const yPositionBoy = useTransform(
         scrollY,
         [0, winHeight],
-        [`${(180 * 100) / winHeight}vh`, `${(485 * 100) / winHeight}vh`]
+        [`${(180 * 100) / winHeight}vh`, `${(385 * 100) / winHeight}vh`]
     );
 
     const xPositionBoy = useTransform(
@@ -68,28 +68,88 @@ function Demo() {
         [winHeight, 2 * winHeight],
         ["500px", "120px"]
     );
+
     const boxy2_p = useTransform(
         scrollY,
         [winHeight, 2 * winHeight],
         ["1000px", "524px"]
     );
 
+    const boysOpacity = useTransform(scrollY, [0, winHeight / 2], [1, 0]);
+
     return (
         <div className="Demo">
             <section className="section section1">
                 <img src={CompL} style={{ marginTop: 32 }} />
-                {/* <img src={MAN1} style={{ marginTop: 32 }} />
-            <img src={MAN2} style={{ marginTop: 32 }} />
-            <img src={MAN3} style={{ marginTop: 32 }} />
-            <img src={MAN4} style={{ marginTop: 32 }} /> */}
+                <motion.img
+                    alt={"MAN1"}
+                    src={MAN1}
+                    style={{
+                        position: "absolute",
+                        top: 461,
+                        left: 3,
+                        opacity: boysOpacity,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                    }}
+                />
+                <motion.img
+                    alt={"MAN2"}
+                    src={MAN2}
+                    style={{
+                        position: "absolute",
+                        top: 461,
+                        left: 52,
+                        opacity: boysOpacity,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                    }}
+                />
+                <motion.img
+                    alt={"MAN3"}
+                    src={MAN3}
+                    style={{
+                        position: "absolute",
+                        top: 461,
+                        left: 186,
+                        opacity: boysOpacity,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                    }}
+                />
+                <motion.img
+                    alt={"MAN4"}
+                    src={MAN4}
+                    style={{
+                        position: "absolute",
+                        top: 461,
+                        left: 256,
+                        opacity: boysOpacity,
+                    }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                    }}
+                />
                 <motion.div className="heading" style={{}}>
                     Lead
-                </motion.div>{" "}
+                </motion.div>
                 <motion.div className="subheading">
                     Join the Naukri Campus Squad to lead your college, earn
                     rewards, and grow your career
                 </motion.div>
                 <motion.div
+                    className="boy-box"
                     initial={{ x: -winWidth, y: winHeight }}
                     animate={{ x: 0, y: 0 }}
                     transition={{
@@ -120,6 +180,7 @@ function Demo() {
                     />
                 </motion.div>
                 <motion.div
+                    className="girl-box"
                     initial={{ x: winWidth, y: winHeight }}
                     animate={{ x: 0, y: 0 }}
                     transition={{
@@ -159,7 +220,10 @@ function Demo() {
                         x: boxx,
                         y: boxy,
                     }}
-                ></motion.div>
+                >
+                    Lorem kipo lispism Lorem kipo lispism Lorem kipo lispism
+                    Lorem kipo lispism
+                </motion.div>
                 <motion.div
                     className="box box2"
                     style={{
@@ -168,7 +232,10 @@ function Demo() {
                         x: boxx2,
                         y: boxy2,
                     }}
-                ></motion.div>
+                >
+                    Lorem kipo lispism Lorem kipo lispism Lorem kipo lispism
+                    Lorem kipo lispism
+                </motion.div>
             </section>
             <section className="section section3">
                 <motion.div
@@ -179,7 +246,10 @@ function Demo() {
                         x: boxx_p,
                         y: boxy_p,
                     }}
-                ></motion.div>
+                >
+                    Lorem kipo lispism Lorem kipo lispism Lorem kipo lispism
+                    Lorem kipo lispism
+                </motion.div>
                 <motion.div
                     className="box box2"
                     style={{
@@ -188,7 +258,10 @@ function Demo() {
                         x: boxx2_p,
                         y: boxy2_p,
                     }}
-                ></motion.div>
+                >
+                    Lorem kipo lispism Lorem kipo lispism Lorem kipo lispism
+                    Lorem kipo lispism
+                </motion.div>
             </section>
         </div>
     );
