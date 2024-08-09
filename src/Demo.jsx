@@ -1,50 +1,47 @@
-import React, { useEffect, useRef } from "react";
-import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
-import "./Demo.scss";
+import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import BIY from "./assets/boy.svg";
 import GIY from "./assets/girl.svg";
+import CompL from "./assets/logoComp.svg";
+// import MAN1 from "./assets/man1.svg";
+// import MAN2 from "./assets/man2.svg";
+// import MAN3 from "./assets/man3.svg";
+// import MAN4 from "./assets/man4.svg";
 
 function Demo() {
     const { scrollY } = useScroll({
         offset: ["start end", "end start"],
     });
+
     const winHeight = window.innerHeight;
     const winWidth = window.innerWidth;
-    // const scrollY = useMotionValue(0);
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         scrollY.set(window.scrollY);
-    //     };
-
-    //     window.addEventListener("scroll", handleScroll);
-    //     return () => {
-    //         window.removeEventListener("scroll", handleScroll);
-    //     };
-    // }, [scrollY]);
+    console.log(winHeight, winWidth);
 
     const yPositionBoy = useTransform(
         scrollY,
         [0, winHeight],
-        ["160px", "335px"]
+        [`${(180 * 100) / winHeight}vh`, `${(485 * 100) / winHeight}vh`]
     );
+
     const xPositionBoy = useTransform(
         scrollY,
         [0, winHeight],
-        ["60px", "-40px"]
+        [`${winWidth / 2 - 120}px`, `0px`]
     );
+
     const scaleBoy = useTransform(scrollY, [0, winHeight], ["1", "0.61"]);
 
     const yPositionGirl = useTransform(
         scrollY,
         [0, winHeight],
-        ["209px", "40px"]
+        [`${(209 * 100) / winHeight}vh`, `${(40 * 100) / winHeight}vh`]
     );
+    const scaleGirl = useTransform(scrollY, [0, winHeight], ["1", "0.43"]);
     const xPositionGirl = useTransform(
         scrollY,
         [0, winHeight],
-        ["244px", "292px"]
+        [`${winWidth / 2}px`, `${winWidth - 286 * 0.43}px`]
     );
-    const scaleGirl = useTransform(scrollY, [0, winHeight], ["1", "0.43"]);
 
     const scaleBox = useTransform(scrollY, [0, winHeight], [0, 1]);
     const boxOpac = useTransform(scrollY, [0, winHeight], [0, 1]);
@@ -79,56 +76,79 @@ function Demo() {
 
     return (
         <div className="Demo">
-            <motion.div
-                initial={{ x: -winWidth, y: winHeight }}
-                animate={{ x: 0, y: 0 }}
-                transition={{
-                    type: "just",
-                    stiffness: 100,
-                    damping: 20,
-                    duration: 0.5,
-                }}
-            >
-                <motion.img
-                    style={{
-                        position: "fixed",
-                        top: "0",
-                        left: "0",
-                        x: xPositionBoy,
-                        y: yPositionBoy,
-                        scale: scaleBoy,
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="boy-svg"
-                    src={BIY}
-                />
-            </motion.div>
-            <motion.div
-                initial={{ x: winWidth, y: winHeight }}
-                animate={{ x: 0, y: 0 }}
-                transition={{
-                    type: "just",
-                    stiffness: 100,
-                    damping: 20,
-                    duration: 0.5,
-                }}
-            >
-                <motion.img
-                    style={{
-                        position: "fixed",
-                        top: "0",
-                        left: "0",
-                        x: xPositionGirl,
-                        y: yPositionGirl,
-                        scale: scaleGirl,
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="boy-svg"
-                    src={GIY}
-                />
-            </motion.div>
             <section className="section section1">
-                {/* Page 1 content */}
+                <img src={CompL} style={{ marginTop: 32 }} />
+                {/* <img src={MAN1} style={{ marginTop: 32 }} />
+            <img src={MAN2} style={{ marginTop: 32 }} />
+            <img src={MAN3} style={{ marginTop: 32 }} />
+            <img src={MAN4} style={{ marginTop: 32 }} /> */}
+                <motion.div className="heading" style={{}}>
+                    Lead
+                </motion.div>{" "}
+                <motion.div className="subheading">
+                    Join the Naukri Campus Squad to lead your college, earn
+                    rewards, and grow your career
+                </motion.div>
+                <motion.div
+                    initial={{ x: -winWidth, y: winHeight }}
+                    animate={{ x: 0, y: 0 }}
+                    transition={{
+                        type: "just",
+                        stiffness: 100,
+                        damping: 20,
+                        duration: 0.5,
+                    }}
+                >
+                    <motion.img
+                        style={{
+                            position: "fixed",
+                            top: 0,
+                            left: 0,
+                            x: xPositionBoy,
+                            y: yPositionBoy,
+                            scale: scaleBoy,
+                        }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 30,
+                        }}
+                        className="boy-svg"
+                        src={BIY}
+                        width={166}
+                        height={531}
+                    />
+                </motion.div>
+                <motion.div
+                    initial={{ x: winWidth, y: winHeight }}
+                    animate={{ x: 0, y: 0 }}
+                    transition={{
+                        type: "just",
+                        stiffness: 100,
+                        damping: 20,
+                        duration: 0.5,
+                    }}
+                >
+                    <motion.img
+                        style={{
+                            position: "fixed",
+                            top: 0,
+                            left: 0,
+                            x: xPositionGirl,
+                            y: yPositionGirl,
+                            scale: scaleGirl,
+                        }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 30,
+                        }}
+                        className="girl-svg"
+                        src={GIY}
+                        width={106}
+                        height={515}
+                    />
+                </motion.div>
             </section>
             <section className="section section2">
                 <motion.div
