@@ -1,5 +1,11 @@
 import React, { useRef } from "react";
-import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
+import {
+    motion,
+    useMotionValue,
+    useScroll,
+    useTransform,
+    useViewportScroll,
+} from "framer-motion";
 import "./section2.scss";
 import CompL from "../assets/logoComp.svg";
 
@@ -53,9 +59,7 @@ function Section2() {
     );
 
     return (
-        <div
-            style={{ position: "relative", overflowY: "auto", height: "100vh" }}
-        >
+        <div style={{ position: "relative" }}>
             <section className="section section2">
                 <motion.img
                     alt="comp"
