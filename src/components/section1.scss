@@ -1,0 +1,110 @@
+.section1 {
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        // opacity: 0.8;
+        // background: url(https://source.unsplash.com/random);
+        background-image: url("../assets/bg2.svg");
+        background-size: cover;
+        // background-attachment: fixed;
+        // background-position: center;
+        // background-repeat: no-repeat;
+    }
+
+    .circle1 {
+        width: 456px;
+        height: 468px;
+        position: absolute;
+
+        top: 352px;
+        left: -167px;
+        border: 1px solid #ffffff;
+        border-radius: 50%;
+
+    }
+
+    .circle2 {
+        position: absolute;
+        border-radius: 50%;
+        width: 319px;
+        height: 327px;
+        top: 322px;
+        left: 233px;
+        border: 1px solid #ffffff;
+
+    }
+
+    .gradient-black {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) -5.12%, #000000 70.65%);
+        width: 100vw;
+        height: 322px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .heading {
+        margin-top: 15px;
+        font-family: "Circular Std";
+        font-size: 120px;
+        font-weight: 700;
+        line-height: 160px;
+        letter-spacing: -0.02em;
+        text-align: center;
+    }
+
+    .subheading {
+        position: absolute;
+        z-index: 1005;
+        top: 569px;
+        left: 33px;
+        right: 34px;
+        font-family: "Circular Std";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0.03em;
+    }
+
+    .boy-box,
+    .girl-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .boy-svg {
+        z-index: 1000;
+    }
+
+    .girl-svg {
+        z-index: 1001;
+    }
+
+    .landing-btn {
+        background: rgba(46, 41, 255, 1);
+        width: calc(100vw - 89px);
+        height: 49px;
+        position: absolute;
+        top: 629px;
+        left: 44px;
+        right: 45px;
+        gap: 10px;
+        border-radius: 16px;
+        font-family: "Circular Std";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21.6px;
+        text-align: center;
+        color: rgba(255, 255, 255, 1);
+        box-shadow: none;
+        border: none;
+        z-index: 1002;
+        margin-top: 18px;
+    }
+
+}
